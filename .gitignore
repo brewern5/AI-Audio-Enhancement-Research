@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+*.sqlite3
+*.db
+*.pkl
+*.h5
+*.hdf5
+*.env
+.env*
+venv/
+ENV/
+.envrc
+*.bak
+*.tmp
+*.swp
+*.swo
+*.~
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# MacOS
+.DS_Store
+
+# Audio/ML/Experiment outputs
+output/
+logs/
+*.wav
+*.mp3
+*.flac
+*.npy
+*.npz
+
+# Others
+*.old
+*.orig
+*.rej
+
+# Ignore PDF and PPTX in docs
+/docs/*.pdf
+/docs/*.pptx
