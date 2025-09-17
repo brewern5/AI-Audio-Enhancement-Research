@@ -5,7 +5,6 @@ class: lead
 paginate: ture
 ---
 # AI Audio Enhancement
-## Sales Pitch: No-Nonsense Approach
 
 ---
 ## The Problem
