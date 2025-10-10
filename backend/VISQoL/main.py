@@ -1,24 +1,40 @@
 import librosa
+import matplotlib.pyplot as plt
 
-from utils.io_util import load_audio # Main I/O
+from utils.audio_factory import AudioFactory
+
 from preprocessing.preprocess import Processor # Prepare audio for evalutaion metrics
-from output.spectrogram import display_spectrogram 
+from output.spectrogram import Spectrogram 
+
 
 def main():
-    #audio_path = "./assets/example.wav"
-    #waveform, sample_rate = load_audio(audio_path)
-    #print("Waveform: ", waveform)
-    #print("Sample Rate:", sample_rate)
+    wav_audio_path = "./assets/example.wav"
+    mp3_audio_path = "./assets/example.mp3"
 
-    waveform, sample_rate = load_audio(librosa.ex("trumpet"))
+    wav_audio_file = AudioFactory.create_audio_file(wav_audio_path)
+    mp3_audio_file = AudioFactory.create_audio_file(mp3_audio_path)
 
     processor = Processor()
 
-    #processor_return = processor.preprocess(waveform, sample_rate)
+    wav_spectrogram_chunks = processor.get_spectrogram_features(wav_audio_file)
+    mp3_spectrogram_chunks = processor.get_spectrogram_features(mp3_audio_file)
 
-    #print("Processor Return: ", processor_return)
-    
-    display_spectrogram(waveform, sample_rate=sample_rate)
+    wav_chroma_chunks = processor.get_chroma_chunks(wav_audio_file)
+    mp3_chroma_chunks = processor.get_chroma_chunks(mp3_audio_file)
+
+    fig, ((ax1, ax2), (ax3, ax4) )= plt.subplots(2, 2, figsize = (16, 12))
+
+    Spectrogram.display_chunked_spectrogram(chunks=wav_spectrogram_chunks, file=wav_audio_file, ax = ax1)
+    ax1.set_title(f'Spectrogram - {wav_audio_file.title}')
+
+    Spectrogram.display_chunked_spectrogram(chunks=mp3_spectrogram_chunks, file=mp3_audio_file, ax = ax2)
+    ax2.set_title(f'Spectrogram - {mp3_audio_file.title}')
+
+    Spectrogram.display_chroma(wav_chroma_chunks, wav_audio_file, ax3)
+    Spectrogram.display_chroma(mp3_chroma_chunks, mp3_audio_file, ax4)
+
+    plt.tight_layout()
+    plt.show()
 
 
 if __name__ == "__main__":
