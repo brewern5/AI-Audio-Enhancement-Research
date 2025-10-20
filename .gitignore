@@ -42,6 +42,7 @@ logs/
 *.wav
 *.mp3
 *.flac
+*.midi
 *.npy
 *.npz
 

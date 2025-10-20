@@ -1,0 +1,9 @@
+input_path,target_path,bitrate_kbps,original_id
+/kaggle/working/mp3_converted/a3.mp3,/kaggle/input/smalldataset/a3.wav,128,a3
+/kaggle/working/mp3_converted_192k/a3.mp3,/kaggle/input/smalldataset/a3.wav,192,a3
+/kaggle/working/mp3_converted/a1.mp3,/kaggle/input/smalldataset/a1.wav,128,a1
+/kaggle/working/mp3_converted_192k/a1.mp3,/kaggle/input/smalldataset/a1.wav,192,a1
+/kaggle/working/mp3_converted/a4.mp3,/kaggle/input/smalldataset/a4.wav,128,a4
+/kaggle/working/mp3_converted_192k/a4.mp3,/kaggle/input/smalldataset/a4.wav,192,a4
+/kaggle/working/mp3_converted/a2.mp3,/kaggle/input/smalldataset/a2.wav,128,a2
+/kaggle/working/mp3_converted_192k/a2.mp3,/kaggle/input/smalldataset/a2.wav,192,a2
