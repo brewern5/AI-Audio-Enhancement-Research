@@ -118,17 +118,15 @@ Can we use AI to upscale lossy audio files to near-lossless audio quality?
 2. **Refine AI model architecture** to support advanced interpolation
 3. Create **Mock streaming** frontend and backend 
    
-## Technical Implementation Overview
-
 ---
+  
+## Technical Implementation Overview
 
 ### Backend Architecture
 - Audio file processing - chunking for streaming
 - Python-based processing pipeline
 
 ### Analysis Components
-- Audio preprocessing and normalization
-- Spectrogram generation and analysis
-- Quality metrics calculation and comparison
-
----
+- Flutter/dart front end implementation
+- Audio preprocessing and normalization both on front-end and back-end
+- User visualization/listening platform
