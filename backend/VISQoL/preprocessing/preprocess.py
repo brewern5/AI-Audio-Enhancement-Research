@@ -28,13 +28,12 @@ class Processor:
     # This method breaks larger files down into multiple parts for easier processing
     def _stream(self, file):
 
-        # Set the window size for analyzing audio chunks
-        # 2048 samples per frame provides good frequency resolution
-        frame_length = 2048
-
-        # Set how much we advance between each analysis window
-        # 512 samples creates 75% overlap between frames for smooth analysis
-        hop_length = 512
+        # Use time-based parameters that scale with sample rate
+        # Target ~46ms window (2048 samples at 44.1kHz)
+        frame_length = int(0.046 * file.sample_rate)
+        
+        # Target ~11.6ms hop (512 samples at 44.1kHz = 75% overlap)
+        hop_length = int(0.0116 * file.sample_rate)
 
         # Create a streaming iterator that reads the audio file in chunks
         # This prevents loading the entire file into memory at once
@@ -46,11 +45,12 @@ class Processor:
             hop_length = hop_length
         )
 
-    
+
     def get_chroma_chunks(self, file):
         
-        frame_length = 2048
-        hop_length = 512
+        # Use time-based parameters scaled to sample rate
+        frame_length = int(0.046 * file.sample_rate)
+        hop_length = int(0.0116 * file.sample_rate)
 
         stream = self._stream(file)
 
@@ -63,8 +63,7 @@ class Processor:
             # Calcuate n_fft for this chunk
             n_fft = self._calclate_nfft(len(y), frame_length)
 
-            current_hop_length = min(hop_length, n_fft //4) 
-
+            current_hop_length = min(hop_length, n_fft //4)
             # Extract chroma features (musical pitch information) from the current chunk
             # Chroma features represent the 12 different pitch classes (C, C#, D, etc.)
             chroma_block = librosa.feature.chroma_stft(
@@ -78,10 +77,10 @@ class Processor:
             chromas.append(chroma_block)
 
         return chromas
-    
     def get_spectrogram_features(self, file):
-        frame_length = 2048
-        hop_length = 512
+        # Use time-based parameters scaled to sample rate
+        frame_length = int(0.046 * file.sample_rate)
+        hop_length = int(0.0116 * file.sample_rate)
 
         stream = self._stream(file)
 
@@ -91,6 +90,7 @@ class Processor:
 
             n_fft = self._calclate_nfft(len(chunk), frame_length)
 
+            current_hop_length = min(hop_length, n_fft //4)
             current_hop_length = min(hop_length, n_fft //4) 
 
             spectrogram_block = librosa.feature.melspectrogram(
@@ -98,7 +98,8 @@ class Processor:
                 sr = file.sample_rate,
                 n_fft = n_fft,
                 hop_length = current_hop_length,
-                center = False
+                center = False,
+                fmax = 22050  # Limit to 22.05kHz max frequency for consistent comparison
             )
 
             # Convert to dB scale for visualization

@@ -5,7 +5,7 @@ paginate: true
 backgroundColor: #f8f9fa
 color: #333
 header: 'AI Audio Enhancement Research - Project Status'
-footer: 'October 2025'
+footer: 'November 2025'
 ---
 
 # AI Audio Enhancement Research
@@ -15,94 +15,99 @@ footer: 'October 2025'
 
 ---
 
-## What Went Well ✅
+# What is this project about
+Can we use AI to upscale lossy audio files to near-lossless audio quality?
 
-### 🎵 Deep Understanding of Digital Audio Processing
+
+### Benefits: 
+- Reduce streaming bandwidth if native to streaming devices
+- Optimize disk space for donwloaded audio files
+- Allow lossless streaming on Bluetooth devices
+- Highly distributed IoT networks for audio processing
+
+---
+
+## Tools
+
+### AI
+- Model - 1D U-Net archtecture
+  - PyTorch for ML 
+- Hosted through Kaggle
+
+### Audio Processing 
+- Librosa
+  - Strong audio processing library for python
+
+---
+
+## What Went Well 
+
+### Deep Understanding of Digital Audio Processing
 - Extensive research into **digital audio compression** techniques
-- Comprehensive study of **audio quality metrics** and evaluation methods
+- Comprehensive study of **digital audio conversion**
 - Strong foundation in **lossy vs. lossless** audio format differences
 
-### 🤖 AI Model Development Progress
+### AI Model Development Progress
 - Successfully initiated the **beginning stages** of our AI model
 - Established baseline architecture for audio quality enhancement
-- Created foundational framework for future iterations
 
 ---
 
-## Challenges Encountered ⚠️
+## Challenges Encountered 
 
-### 📊 Dataset Limitations
+### Dataset Limitations
 - **Lack of diverse datasets** for comprehensive training
 - Limited availability of high-quality audio samples
-- AI model refinement
 
-### 🔍 Objective Evaluation Metric Issues
-- Current evaluation metric **sample rate too low** for our standards
-- Performance metrics not meeting expected thresholds
-- Self development of evaluation tools
+### AI Interpolation Training
+- Current output of AI model needs refinement on interpolation methodology
+- Use original lossless metadata for interpolation parameters
 
----
-
-## Future Plans & Roadmap 🚀
-
-### 🎯 AI Model Enhancement
-- **Continue training** with expanded datasets
-- Focus on improving model's ability to **distinguish between lossy and lossless** audio
-- Refine neural network architecture for better performance
-
-### 📱 Native Implementation
-- **Deploy AI natively** on mobile phones and computers
-- Optimize for real-time processing capabilities
-- Ensure cross-platform compatibility
-
-### 🌐 Streaming Simulation
-- Create **mock environments** to simulate natural streaming conditions
-- Test performance under various network conditions
-- Validate real-world application scenarios
+### Defintion upon definition
+- The deeper you go the more definitions for more things you find
 
 ---
-
-
-![Audio Analysis Interface](MetricDisplay.png)
-
 
 **Key Features:**
-- Real-time audio quality visualization
-- Comparative analysis between original and enhanced audio
-- Intuitive metrics display for end users
+- Audio quality visualization
+- Comparative analysis between audio files
+- AI upscaling output
 
 ---
 
-## Technical Implementation Overview
+## Future Plans & Roadmap 
 
-### 🔧 Backend Architecture
-- **VISQoL Integration** for objective audio quality assessment
-- Python-based processing pipeline
-- Modular design for scalability
+### AI Model Enhancement
+- Create/find data sets
+- Focus on improving model's ability to properly interpolate
+- Optimize for native implementation on less powerful devices
 
-### 📊 Analysis Components
-- Audio preprocessing and normalization
-- Spectrogram generation and analysis
-- Quality metrics calculation and comparison
-
-### 🎨 Frontend Visualization
-- Interactive audio quality dashboards
-- Real-time feedback for users
-- Cross-platform web interface
+### Streaming Simulation
+- Create **mock streaming service** to simulate natural streaming conditions
+- Create client that can playback all version of the audio, display graphs and also the metadata of files.
 
 ---
 
 ## Key Learnings & Technical Insights
 
-### 🎓 Digital Audio Processing Mastery
+### Digital Audio Processing Mastery
 - Comprehensive understanding of **audio compression algorithms**
 - In-depth knowledge of **perceptual audio coding**
 - Expertise in **quality assessment methodologies**
 
-### 🔬 Research Methodology
+### Research Methodology
 - Systematic approach to AI model development
 - Evidence-based evaluation of audio enhancement techniques
 - Iterative improvement process for optimal results
+
+---
+
+# Sprint 1 overview
+
+- Week 1: Defined **terminology** - began **audio evaluation**
+- Week 2: **More terminology** - Continued evaluation - **audio I/O** - Began **AI model development** 
+- Week 3: **_Even_ _more_ terminology** - Meta-data handling. Differentiating data sets
+- Week 4: **Surprise! more terminology** - Graph Construction/Modeling - **AI training**
 
 ---
 
@@ -110,5 +115,20 @@ footer: 'October 2025'
 
 ### Sprint 2
 1. **Acquire additional datasets** from diverse sources
-2. **Refine AI model architecture** based on current findings
-3. **Implement Native pipline for AI** for mock streaming use
+2. **Refine AI model architecture** to support advanced interpolation
+3. Create **Mock streaming** frontend and backend 
+   
+## Technical Implementation Overview
+
+---
+
+### Backend Architecture
+- Audio file processing - chunking for streaming
+- Python-based processing pipeline
+
+### Analysis Components
+- Audio preprocessing and normalization
+- Spectrogram generation and analysis
+- Quality metrics calculation and comparison
+
+---
