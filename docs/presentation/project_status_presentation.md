@@ -110,6 +110,14 @@ Can we use AI to upscale lossy audio files to near-lossless audio quality?
 - Week 4: **Surprise! more terminology** - Graph Construction/Modeling - **AI training**
 
 ---
+# Metrics
+
+- Total individual Lines of Code (LoC): ~1200
+- Number of individual features completed: __2___
+- Number of individual requirements completed: __5___
+- Individual burndown rate (%): __33%____
+
+---
 
 ## Next Steps & Immediate Actions
 
