@@ -72,9 +72,6 @@ class Db:
         if(items == None):
             raise QueryException("Items Not Found")
         
-        print('\n\n')
-        print(type(items))
-        
         return items
 
     """

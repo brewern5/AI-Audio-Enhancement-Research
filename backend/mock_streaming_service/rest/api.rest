@@ -1,13 +1,16 @@
-GET http://0.0.0.0:8000/tracks/single?name=sine_48_og
+GET http://localhost:8000/tracks/single?name=sine_48_og
 ###
 
-GET http://0.0.0.0:8000/tracks/stream/lossy?name=sine_48_og
+GET http://localhost:8000/tracks/stream/lossy?name=sine_48_og
 ###
 
-GET http://0.0.0.0:8000/tracks/newest
+GET http://localhost:8000/tracks/stream/lossless?name=sine_48_og
 ###
 
-POST http://0.0.0.0:8000/tracks/new
+GET http://localhost:8000/tracks/newest
+###
+
+POST http://localhost:8000/tracks/new
 Content-Type: application/json
 
 {

@@ -98,7 +98,6 @@ async def stream_lossy_track(name: Union[str, None] = Query(default=None, descri
             # Chunk out audio
             for chunk in dto_manager.get_stream("lossy"):
                 yield chunk
-        
         # Begin Stream
         return StreamingResponse(generate(), media_type="audio/mpeg", headers=headers)
     except QueryException as qe:
@@ -132,17 +131,15 @@ async def stream_lossless_track(name: Union[str, None] = Query(default=None, des
             # Chunk out audio
             for chunk in dto_manager.get_stream("lossless"):
                 yield chunk
-        
         # Begin Stream
-        return StreamingResponse(generate(), media_type="audio/wav", headers=headers)
+        return StreamingResponse(generate(), media_type="audio/mpeg", headers=headers)
     except QueryException as qe:
         raise HTTPException(status_code=404, detail=f"Query: '{name}' was not found.")
     except Exception as e:
-        print(f"Error in stream_lossless_track: {e}")
+        print(f"Error in post_new: {e}")
         print(f"Error type: {type(e)}")
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Internal Server Error!")
-
 
 
 """

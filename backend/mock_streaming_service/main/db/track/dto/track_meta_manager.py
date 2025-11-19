@@ -55,7 +55,7 @@ class TrackMetaManager:
     def get_stream(self, quality):
         if quality == "lossy":
             return self.track_manager.get_lossy_stream_url()
-        else:
+        elif quality == "lossless":
             return self.track_manager.get_lossless_stream_url()
 
     def generate_headers(self, quality):

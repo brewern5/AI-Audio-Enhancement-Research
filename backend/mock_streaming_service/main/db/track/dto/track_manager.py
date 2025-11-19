@@ -11,6 +11,9 @@ class TrackManager:
     def _check_file_exists(self, path):
         pass
 
+    def get_lossless_stream_url(self):
+        return self._chunk_file(self.lossless_path, chunk_size=32768)
+
     def get_lossy_stream_url(self):
         return self._chunk_file(self.lossy_path)
 
