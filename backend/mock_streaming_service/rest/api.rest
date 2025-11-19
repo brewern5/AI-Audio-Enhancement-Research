@@ -1,0 +1,4 @@
+GET http://0.0.0.0:8000/tracks?name=sine_48_og
+###
+
+GET http://0.0.0.0:8000/tracks/stream/lossy?name=sine_48_og

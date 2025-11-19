@@ -1,5 +1,5 @@
 import os
-import soundfile as sf
+import soundfile as sf #type: ignore
 from utils.io_util import load_audio
 
 class AudioFile:

@@ -1,5 +1,4 @@
 import librosa # Loading in audio files 
-import ffmpeg # 
 
 def load_audio( audio_path):
     

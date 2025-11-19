@@ -16,12 +16,18 @@ build/
 .env*
 venv/
 ENV/
+env/
+.venv/
 .envrc
 *.bak
 *.tmp
 *.swp
 *.swo
 *.~
+pyvenv.cfg
+
+# Python Virtual Environments
+backend/mock_streaming_service/streaming_backend/
 
 # Jupyter Notebooks
 .ipynb_checkpoints
@@ -29,12 +35,51 @@ ENV/
 # VS Code
 .vscode/
 
+# IntelliJ/Android Studio
+*.iml
+.idea/
+
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+.metadata
+
+# Android
+*.apk
+*.ap_
+*.aab
+*.dex
+.gradle/
+local.properties
+gradle-wrapper.jar
+gradle-wrapper.properties
+gradlew
+gradlew.bat
+
+# iOS
+*.pbxuser
+*.perspectivev3
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+ios/.symlinks/
+
 # Windows
 Thumbs.db
 Desktop.ini
 
 # MacOS
 .DS_Store
+*.dSYM/
 
 # Audio/ML/Experiment outputs
 output/
@@ -44,6 +89,12 @@ logs/
 *.flac
 *.npy
 *.npz
+
+# Node.js (if any)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # Others
 *.old

@@ -125,6 +125,9 @@ Can we use AI to upscale lossy audio files to near-lossless audio quality?
 1. **Acquire additional datasets** from diverse sources
 2. **Refine AI model architecture** to support advanced interpolation
 3. Create **Mock streaming** frontend and backend 
+
+- 2 Features
+- 12 Requirements
    
 ---
   

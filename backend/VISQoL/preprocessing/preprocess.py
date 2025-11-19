@@ -1,4 +1,4 @@
-import librosa
+import librosa #type: Ignore
 import numpy as np
 
 class Processor:
