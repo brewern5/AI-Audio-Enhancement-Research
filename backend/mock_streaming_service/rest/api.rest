@@ -1,18 +1,19 @@
-GET http://0.0.0.0:8000/tracks?name=sine_48_og
+GET http://0.0.0.0:8000/tracks/single?name=sine_48_og
 ###
 
 GET http://0.0.0.0:8000/tracks/stream/lossy?name=sine_48_og
+###
+
+GET http://0.0.0.0:8000/tracks/newest
 ###
 
 POST http://0.0.0.0:8000/tracks/new
 Content-Type: application/json
 
 {
-  "_id": "",
   "name": "nate_data1",
   "length": "00:02:07",
   "lossless": {
-    "id": "",
     "size": "91 MB",
     "sample_rate": 96000,
     "bit_rate": "6144kbps",
@@ -20,7 +21,6 @@ Content-Type: application/json
     "file_path": "file_store/wav/nate_data1.wav"
   },
   "lossy": {
-    "id": "",
     "size": "1.89 MB",
     "sample_rate": 48000,
     "bit_rate": "124kbps",

@@ -1,3 +1,5 @@
+import pymongo #type: ignore
+
 class Collection:
 
     def __init__(self, collection):
@@ -6,8 +8,9 @@ class Collection:
     def _find_one(self, *args, **kwargs):
         return self.collection.find_one(*args, **kwargs)
 
-    def get_all(self, db):
-        pass
+    def get_most_recent(self, num):
+        results = self.collection.find().sort("timestamp", pymongo.DESCENDING).limit(num)
+        return list(results)
 
     """
         Get Methods
@@ -26,9 +29,4 @@ class Collection:
     """
 
     def post_item(self, item_data):
-         
-        posted = self.collection.insert_one(item_data)
-
-        print(posted)
-
-        return posted
+        self.collection.insert_one(item_data)

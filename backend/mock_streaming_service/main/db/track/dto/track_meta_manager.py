@@ -1,4 +1,5 @@
 import json
+from bson import ObjectId
 
 from .track_meta_dto import TrackMetaDTO
 from .track_manager import TrackManager
@@ -21,7 +22,25 @@ class TrackMetaManager:
 
     def json_to_meta_dto(self, data):
         try:
-            return TrackMetaDTO(**data)
+            # Create a copy to avoid modifying the original data
+            processed_data = data.copy()
+            
+            # Convert ObjectId to string for _id field
+            if '_id' in processed_data and isinstance(processed_data['_id'], ObjectId):
+                processed_data['_id'] = str(processed_data['_id'])
+            
+            # Add missing id fields to lossless and lossy if they don't exist
+            if 'lossless' in processed_data and 'id' not in processed_data['lossless']:
+                # Generate an ID based on the _id and type
+                base_id = processed_data.get('_id', 'unknown')
+                processed_data['lossless']['id'] = f"{base_id}_lossless"
+            
+            if 'lossy' in processed_data and 'id' not in processed_data['lossy']:
+                # Generate an ID based on the _id and type
+                base_id = processed_data.get('_id', 'unknown')
+                processed_data['lossy']['id'] = f"{base_id}_lossy"
+            
+            return TrackMetaDTO(**processed_data)
         except Exception as e:
             print(f"Error creating DTO: {e}")
             raise

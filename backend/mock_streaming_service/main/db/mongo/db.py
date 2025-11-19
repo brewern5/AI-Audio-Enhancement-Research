@@ -55,11 +55,6 @@ class Db:
     """
 
 
-    def get_all_by_collection_name(self, collection_name):
-        target_collection = self._find_collection(collection_name)
-        
-        # TODO: Get all items 
-
     def get_from_collection(self, collection_name, query_item):
         target_collection = self._find_collection(collection_name)
 
@@ -70,6 +65,17 @@ class Db:
         
         return item
     
+    def get_newest_from_collection(self, collection_name):
+        target_collection = self._find_collection(collection_name)
+
+        items = target_collection.get_most_recent(10)
+        if(items == None):
+            raise QueryException("Items Not Found")
+        
+        print('\n\n')
+        print(type(items))
+        
+        return items
 
     """
         Collection post based methods
@@ -77,6 +83,7 @@ class Db:
 
 
     def post_to_collection(self, collection_name, post_item):
+
         target_collection = self._find_collection(collection_name)
 
-        posted = target_collection.post_item(post_item)
+        target_collection.post_item(post_item)
