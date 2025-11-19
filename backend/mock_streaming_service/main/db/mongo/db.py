@@ -3,10 +3,10 @@ from pymongo.server_api import ServerApi #type: ignore
 
 from .db_collection import Collection
 
-from ...exceptions.query_exception import QueryException
+from ...exceptions.exceptions import QueryException, CollectionException
 
 from ...utils.env import Env
-
+ 
 # Username: brewern5_db_user
 # pw: R9vnOR4x8SjFqW3U
 
@@ -30,6 +30,10 @@ class Db:
 
         self._create_collections_map()
 
+    """
+        Collections
+    """
+
     def _create_collections_map(self):
         collection_list = self.db.list_collections()
 
@@ -38,23 +42,41 @@ class Db:
             mongo_collection = self.db[collection['name']]  # Get the actual MongoDB collection
             self.collections[collection['name']] = (Collection(mongo_collection)) 
 
+    def _find_collection(self, collection_name):
+        target_collection= self.collections.get(collection_name, None)
+        if(target_collection == None):
+            raise CollectionException("Collection not Found!", collection_name)
+        else:
+            return target_collection
+    
+
     """
-    Collection based methods
+        Collection get based methods
     """
 
-    def _find_collection(self, collection_name):
-        return self.collections.get(collection_name, None)
-            
+
     def get_all_by_collection_name(self, collection_name):
         target_collection = self._find_collection(collection_name)
+        
+        # TODO: Get all items 
 
-    def get_from_collection(self, collection_name, name):
+    def get_from_collection(self, collection_name, query_item):
         target_collection = self._find_collection(collection_name)
-        if(target_collection == None):
-            raise Exception("Colletion Not Found!")
 
-        item = target_collection.get_by_name(name)
+        # TODO: Create dynamic get methods 
+        item = target_collection.get_by_name(query_item)
         if(item == None):
-            raise QueryException("Item Not Found", name)
+            raise QueryException("Item Not Found", query_item)
         
         return item
+    
+
+    """
+        Collection post based methods
+    """
+
+
+    def post_to_collection(self, collection_name, post_item):
+        target_collection = self._find_collection(collection_name)
+
+        posted = target_collection.post_item(post_item)

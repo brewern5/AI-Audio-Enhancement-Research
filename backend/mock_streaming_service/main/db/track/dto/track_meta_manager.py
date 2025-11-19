@@ -54,12 +54,27 @@ class TrackMetaManager:
         }
 
     def __str__(self):
-        return (
-            f"TrackMetaManager("
-            f"name='{self.meta_dto.name}', "
-            f"id='{self.dto.id}', "
-            f"length='{self.meta_dto.length}', "
-            f"sample_rate={self.meta_dto.sample_rate}, "
-            f"bit_depth='{self.meta_dto.bit_depth}'"
-            f")"
-        )
+        # Return compact one-line JSON representation by default
+        try:
+            return self.toString()
+        except Exception:
+            return f"TrackMetaManager(name='{getattr(self.meta_dto, 'name', None)}', id='{getattr(self.meta_dto, 'id', None)}')"
+
+    def toString(self) -> str:
+        """Return the `meta_dto` as a compact, single-line JSON string.
+
+        Uses the Pydantic model's `.json()` to preserve aliases (e.g. `_id`) and
+        emits a minimal representation with no extra whitespace so it's one line.
+        """
+        # Prefer Pydantic's json() when available
+        try:
+            return self.meta_dto.json(by_alias=True, exclude_none=True, separators=(",", ":"))
+        except Exception:
+            # Fallback to stdlib json with dict conversion
+            try:
+                return json.dumps(self.meta_dto.dict(by_alias=True, exclude_none=True), separators=(",", ":"))
+            except Exception as e:
+                # As a last resort, return a readable str
+                return str(self.meta_dto)
+    
+    
