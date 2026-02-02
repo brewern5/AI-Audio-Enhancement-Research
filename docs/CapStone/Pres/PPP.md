@@ -34,13 +34,49 @@ Semantic transmission of the **meaning** of the message and reconstruct **intell
 
 ---
 
+# Features/Requirements
+
+- Write research paper
+  - Abstraction of problem/solution
+  - Concrete examples
+  - Skeleton
+  - Final paper
+- Testing different semantic transmission methods
+  -  TTS
+  -  Neural Reconstruction
+  -  Template based 
+  -  Unknown Unknowns
+-  
+
+-----------------
+
+# Features/Requirements (Cont.)
+
+- Implement LoRa mesh network
+  - Begin with Lora P2P network
+  - LoRa testing for optimization
+- Begin AI training
+  - Define Semanic transmission methods and follow one
+  - Train sending AI and recieving AI
+
+
+--------
+
+# Features/Requirements(Fin)
+Total Features: 4
+Total Requirements: 12
+
+(More on the Way!)
+
+----
+
 ## Sprint Overview
 
 ### Sprint 1 Goals
 
 - Write research paper-skeleton 
 - Testing different sematic transmission methods (TTS, Neural Reconstruction, Template based) 
-- Implement LoRa Mesh network 
+- Implement simple LoRa P2P network
 - Begin AI training 
 
 ---
@@ -48,6 +84,7 @@ Semantic transmission of the **meaning** of the message and reconstruct **intell
 ## Sprint Overview(Cont.)
 
 ### Sprint 2 Goals
+- Implement LoRa Mesh network 
 - Refine and continue to train AI models
 - Simulation testing
 - Implement LoRa network with AI models and begin testing
