@@ -120,6 +120,8 @@ Can we use AI to upscale lossy audio files to near-lossless audio quality?
 - Week 5: **Data set** and **AI refactoring**
 - Week 6: Began creating **DB** and **streaming API**.
 - Week 7: Finished **DB and backend**. Began creating **frontend** flutter interface
+- Week 8: Fulling integrating **Streaming Playback** to front end with **Meta-Data**
+- Week 9: Integrated **File-Store** and basic **interpolation** added to ai 
  
 
 ---
@@ -140,9 +142,10 @@ Can we use AI to upscale lossy audio files to near-lossless audio quality?
 
 ### Sprint ???
 1. **Acquire MORE datasets** from diverse sources
-2. **Integrate API to Model for output to streaming**
-3. **Integrate evaluation metrics** to the frontend
-4. Create **Native instances** of AI Model
+2. Move AI model hosting to **Google Colab** for **GPU** usage
+3. **Integrate API to Model for output to streaming**
+4. **Integrate evaluation metrics** to the frontend
+5. Create **Native instances** of AI Model
    
 ---
   
